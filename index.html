@@ -3,36 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <meta name="description" content="Portfolio of Brian Chege - Actuarial Analyst and Data Scientist">
+    <title>Brian Chege | Data & Risk</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">BC.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Skills</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#contact" class="btn-nav">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </nav>
 
-    <section id="skills">
-        <h1>My Skills</h1>
-        <div class="skills-container">
-            <div class="skill-card">
-                <h3>HTML & CSS</h3>
-                <p>Advanced</p>
+    <header id="home" class="hero">
+        <div class="hero-grid">
+            
+            <div class="hero-visual-wrapper">
+                <img src="Images/Gemini_Generated_Image_6taqp46taqp46taq.png" alt="Brian Chege" class="hero-img">
             </div>
-            <div class="skill-card">
-                <h3>JavaScript</h3>
-                <p>Intermediate</p>
+
+            <div class="hero-content">
+                <span class="eyebrow">Hello, I'm</span>
+                <h1>Brian Chege</h1>
+                <h2 style="color: #333;">Actuarial Analyst <span class="highlight">|</span> Data Scientist</h2>
+                <p class="hero-text" style="color: #333;">
+                    Not just analyzing the risk, I engineer the prediction
+                </p>
+                <div class="cta-group">
+                    <a href="#projects" class="btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
+                    <a href="your-cv-link.pdf" class="btn-secondary">Download CV <i class="fas fa-download"></i></a>
+                </div>
             </div>
-            <div class="skill-card">
-                <h3>Python</h3>
-                <p>Beginner</p>
+            
+        </div>
+    </header>
+
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What I Bring to the Table</h2>
+                <p>A blend of statistical theory and computational power.</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="grid-3">
+                <div class="card service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Risk Analysis</h3>
+                    <p>Assessing financial risks and calculating probabilities using standard actuarial principles and statistical methods.</p>
+                </div>
+
+                <div class="card service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Predictive Modeling</h3>
+                    <p>Building machine learning models (Random Forest, Logistic Regression) in Python to forecast trends and classify data.</p>
+                </div>
+
+                <div class="card service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Storytelling</h3>
+                    <p>Transforming complex datasets into clear, interactive dashboards using Power BI and Tableau for stakeholder reporting.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Real-world applications of data science and actuarial skills.</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="grid-3">
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Terry Stops Classification</h3>
+                        <p>Built a binary classifier using <strong>Random Forests</strong> and <strong>Decision Trees</strong> to predict whether a police stop would result in an arrest. Handled class imbalance and performed extensive feature engineering.</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Scikit-Learn</span>
+                            <span>Pandas</span>
+                        </div>
+                        <a href="#" class="link-arrow">View Code <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Aviation Risk Analysis</h3>
+                        <p>Analyzed historical aviation accident data to identify high-risk aircraft models and flight phases. Used data visualization to recommend safer aircraft investments.</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Data Viz</span>
+                            <span>EDA</span>
+                        </div>
+                        <a href="#" class="link-arrow">View Code <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Film Industry Insights</h3>
+                        <p>Exploratory data analysis of box office revenues and production budgets to identify the most profitable movie genres for a new studio entrance strategy.</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Seaborn</span>
+                            <span>Statistics</span>
+                        </div>
+                        <a href="#" class="link-arrow">View Code <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <h2>Let's Work Together</h2>
+            <p>I am currently open to data science and actuarial roles in Nairobi and Thika. Have a project or a job opportunity? Let's chat.</p>
+            
+            <div class="social-links">
+                <a href="mailto:your.email@example.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/BC-254" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 Brian Chege. Built with code, coffee and probability.
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
