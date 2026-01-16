@@ -49,4 +49,14 @@ window.addEventListener('scroll', () => {
 // Smooth reveal on page load
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+    
+    // Handle anchor navigation from other pages
+    if (window.location.hash) {
+        setTimeout(() => {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100);
+    }
 });
