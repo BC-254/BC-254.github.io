@@ -1277,181 +1277,414 @@ footer::after {
     }
 }
 
-/* Override hero content animation to slide from top */
-.hero-content > * {
-    opacity: 0;
-    transform: translateY(-100vh);
-    animation: slideInFromTop 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.hero-content .eyebrow { animation-delay: 0.3s; }
-.hero-content h1 { animation-delay: 0.4s; }
-.hero-content h2 { animation-delay: 0.5s; }
-.hero-content .hero-text { animation-delay: 0.6s; }
-.hero-content .cta-group { animation-delay: 0.7s; }
-
+/* THE CSS FOR THE ABOUT SECTION */
 /* =========================================
-   DARK PURPLE THEME & ABOUT PAGE STYLES
+   1. VARIABLES & RESET
    ========================================= */
-
 :root {
-    /* Define Dark Theme Variables */
-    --bg-dark: #120a2e;       /* Deep Dark Purple Background */
-    --bg-card: #1f1445;       /* Lighter Purple for Cards */
-    --text-main: #e0e0e0;     /* Off-white text */
-    --text-muted: #aaa5c5;    /* Muted purple-grey text */
-    --accent: #8b5cf6;        /* Bright Purple Accent */
-    --accent-glow: rgba(139, 92, 246, 0.5);
-    --glass: rgba(255, 255, 255, 0.05);
+    /* Theme Colors */
+    --bg-dark: #0f0b1e;        /* Deepest Purple/Black */
+    --bg-card: #1a162e;        /* Card Background */
+    --bg-glass: rgba(26, 22, 46, 0.6);
+    
+    /* Text Colors */
+    --text-main: #e2e8f0;      /* Bright Grey */
+    --text-muted: #94a3b8;     /* Blue-Grey */
+    --text-highlight: #c792ea; /* Syntax Highlighting Purple */
+    
+    /* Accents */
+    --accent: #7c3aed;         /* Vivid Purple */
+    --accent-glow: rgba(124, 58, 237, 0.4);
+    --accent-pink: #f472b6;    /* For secondary highlights */
+    --accent-blue: #38bdf8;    /* For tech tags */
+    --accent-green: #4ade80;   /* For success states */
+
+    /* Borders & Shadows */
+    --border-light: rgba(255, 255, 255, 0.08);
+    --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.5);
+    
+    /* Code Editor Specifics */
+    --editor-bg: #1e1e1e;
+    --editor-header: #252526;
 }
 
-/* Base Settings for Dark Theme Page */
-.dark-theme {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-main);
-    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* --- Navigation Override for Dark Theme --- */
-.dark-theme .navbar {
-    background: rgba(18, 10, 46, 0.85); /* Dark Glass */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(15, 11, 30, 0.85);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-light);
+    z-index: 1000;
 }
 
-.dark-theme .logo {
-    color: var(--accent);
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.dark-theme .nav-links a {
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
     color: var(--text-main);
+    letter-spacing: -1px;
 }
 
-.dark-theme .nav-links a:hover,
-.dark-theme .nav-links a.active {
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
     color: var(--accent);
 }
 
-/* --- Intro Section --- */
+.btn-nav {
+    border: 1px solid var(--accent);
+    color: var(--accent) !important;
+    padding: 8px 24px;
+    border-radius: 50px;
+}
+
+.btn-nav:hover {
+    background: var(--accent);
+    color: white !important;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* ==================================
+   3. Creating a coding aesthetic for an introduction 
+   ==================================*/
 .intro-section {
-    padding: 180px 20px 100px;
-    background: radial-gradient(circle at 50% 20%, #2d1b69 0%, var(--bg-dark) 70%);
+    padding-top: 160px;
+    padding-bottom: 100px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    position: relative;      
 }
 
 .location-tag {
-    background: rgba(139, 92, 246, 0.15);
-    color: #c4b5fd;
-    padding: 6px 18px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
     margin-bottom: 25px;
-    backdrop-filter: blur(5px);
 }
 
 .intro-section h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 10px;
+    color: var(--text-main);
 }
 
 .highlight {
-    color: var(--accent);
-    text-shadow: 0 0 20px var(--accent-glow);
+    background: linear-gradient(120deg, var(--accent) 0%, var(--accent-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px var(--accent-glow));
 }
 
 .typing-text {
     font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
     color: var(--text-muted);
-    font-size: 1.4rem;
-    margin-bottom: 40px;
-    border-right: 2px solid var(--accent);
+    margin-bottom: 50px;
     display: inline-block;
-    padding-right: 5px;
-    animation: blink 0.75s step-end infinite;
+    border-right: 2px solid var(--accent-green);
+    overflow: hidden;
+    white-space: nowrap;
+    width:0;
+    animation: 
+        blink-caret 0.75s step-end infinite,
+        typing 4s steps(40, end) infinite alternate;
 }
 
-/* Creative Glass Text Box */
+/* The keyframes to expand the width from 0 to full so as to reveal my text */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+
+/* ===========================
+4. THE CODE EDITOR WINDOW 
+   ============================ */
+
 .about-text-wrapper {
-    position: relative;
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
-}
-
-/* Background animated blob */
-.shape-blob {
-    position: absolute;
-    top: -50%;
-    left: -20%;
-    width: 140%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
-    filter: blur(60px);
-    z-index: 0;
-    animation: blobPulse 8s infinite alternate;
+    perspective: 1000px;
 }
 
 .glass-box {
+    background: #1e1e1e; /* VS Code dark grey */
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    overflow: hidden;
+    text-align: left;
     position: relative;
-    background: var(--glass);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 40px;
-    border-radius: 24px; /* Softer, rounder corners */
-    backdrop-filter: blur(10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    z-index: 1;
-    transform: perspective(1000px) rotateX(2deg);
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
 }
 
 .glass-box:hover {
-    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
-    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateY(-5px);
+    border-color: var(--accent);
 }
 
+/* The Title Bar */
+.glass-box::before {
+    content: 'Brian_Chege.py - Get to know me';
+    display: block;
+    background: #252526; /* Title bar color */
+    color: #4ca6ba;
+    font-family: sans-serif;
+    font-size: 0.75rem;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+/* Traffic Lights */
+.glass-box::after {
+    content: '';
+    position: absolute;
+    top: 13px;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5f56;
+    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+}
+
+/* Inside the Content Area */
 .glass-box p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    color: #d4d4d4;
+    padding: 0 30px;
+    font-size: 1rem;
     line-height: 1.8;
-    margin-bottom: 15px;
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 60px; /* Space for line numbers */
 }
 
+/* Line Numbers */
+.glass-box p::before {
+    content: '1';
+    position: absolute;
+    left: 15px;
+    color: #555;
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+.glass-box p:nth-of-type(2)::before { content: '2'; }
+
+/* Highlighting the keywords in my code editor */
 .glass-box strong {
-    color: #fff;
-    font-weight: 600;
+    color: var(--accent-pink);
+    font-weight: normal;
 }
 
-/* --- Hobbies Section (3D Cards) --- */
-.hobbies-section {
-    padding: 100px 20px;
+
+
+/* =========================================
+   5. TECHNICAL ECOSYSTEM SECTION
+   ========================================= */
+.tech-section {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
     position: relative;
 }
 
 .section-title {
     text-align: center;
-    font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    margin-bottom: 60px;
-    color: #fff;
+    margin-bottom: 40px;
+    color: var(--text-main);
+    position: relative;
+    display: block;
+    width: 100%;
+    
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin: 15px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+.tech-category {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* The Hover Effect: Glow border & lift */
+.tech-category:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Top border accents for each card */
+.tech-category:nth-child(1) { border-top: 3px solid var(--accent-pink); }
+.tech-category:nth-child(2) { border-top: 3px solid var(--accent-blue); }
+.tech-category:nth-child(3) { border-top: 3px solid var(--accent-green); }
+
+.tech-category h3 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-main);
+}
+
+.tech-category h3 i {
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 10px;
+    color: var(--text-main); /* Icon inherits color or set specific */
+}
+
+/* List Items */
+.skill-list {
+    margin-top: 10px;
+}
+
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent); /* Highlighting the skill name */
+    margin-bottom: 4px;
+}
+
+.skill-detail {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Tech Tags (Pills) */
+.tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-right: 6px;
+    margin-top: 6px;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.tag:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* =========================================
+   6. HOBBIES SECTION - Created as Flipping Cards
+   ========================================= */
+.hobbies-section {
+    padding: 80px 0;
+    /* Subtle stripe background */
+    background: linear-gradient(to bottom, var(--bg-dark), #140f26);
 }
 
 .hobbies-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    perspective: 1000px;
 }
 
 .hobby-card {
     height: 320px;
+    perspective: 1000px;
     cursor: pointer;
 }
 
@@ -1459,6 +1692,7 @@ footer::after {
     position: relative;
     width: 100%;
     height: 100%;
+    text-align: center;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform-style: preserve-3d;
 }
@@ -1471,46 +1705,49 @@ footer::after {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 20px;
     backface-visibility: hidden;
+    border-radius: 16px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 20px;
-    border: 1px solid rgba(255,255,255,0.05);
+    align-items: center;
+    box-shadow: var(--shadow-soft);
 }
 
-/* Front Design */
+/* Front Styling */
 .card-front {
     background: var(--bg-card);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 1px solid var(--border-light);
 }
 
 .card-front .icon-lg {
     font-size: 3.5rem;
-    color: var(--accent);
     margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px var(--accent-glow));
+    /* Gradient Text for Icon */
+    background: linear-gradient(to bottom right, var(--accent-blue), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .card-front h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--text-main);
 }
 
-/* Back Design */
+/* Back Styling */
 .card-back {
-    background: linear-gradient(145deg, var(--accent), #6d28d9);
+    background: linear-gradient(135deg, var(--accent), #4c1d95);
+    color: white;
     transform: rotateY(180deg);
-    color: #fff;
-    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card-back h3 {
     margin-bottom: 15px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 5px;
 }
 
 .card-back p {
@@ -1518,127 +1755,133 @@ footer::after {
     line-height: 1.5;
 }
 
-.card-back ul {
-    list-style: none;
-    text-align: left;
-    width: 80%;
-}
-
-.card-back li {
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-}
-
-/* --- Facts Section --- */
+/* =========================================
+   7. FACTS SECTION
+   ========================================= */
 .facts-section {
-    padding: 80px 20px;
-    background: rgba(0,0,0,0.2); /* Slightly darker stripe */
+    padding: 80px 0;
+    background-color: var(--bg-dark);
 }
 
 .facts-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
-    gap: 40px;
-    max-width: 1100px;
-    margin: 0 auto;
 }
 
 .fact-bubble {
-    background: var(--bg-card);
-    padding: 25px;
-    border-radius: 16px;
-    width: 320px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px 25px;
+    border-radius: 50px;
+    border: 1px solid var(--border-light);
     display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: center;
+    gap: 20px;
+    max-width: 380px;
+    transition: transform 0.3s;
 }
 
 .fact-bubble:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
-    border-color: rgba(139, 92, 246, 0.4);
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent);
 }
 
 .bubble-icon {
-    background: rgba(139, 92, 246, 0.1);
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent);
-    font-size: 1.2rem;
     flex-shrink: 0;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px var(--accent-glow);
 }
 
 .bubble-content strong {
     display: block;
-    color: #fff;
-    margin-bottom: 5px;
-    font-size: 1.1rem;
+    color: var(--text-main);
+    font-size: 1rem;
+    margin-bottom: 2px;
 }
 
 .bubble-content p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
+    margin: 0;
 }
 
-/* --- Socials Section --- */
+/* =========================================
+   8. SOCIALS SECTION
+   ========================================= */
 .socials-section {
-    padding: 100px 20px 150px;
+    padding: 60px 0;
+    background: var(--bg-dark);
     text-align: center;
+}
+
+.socials-section .container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .social-dock {
     display: inline-flex;
+    gap: 20px;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
     padding: 15px 30px;
     border-radius: 20px;
-    gap: 25px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(10px);
+}
+.socials-section .container {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;    /* Centers them horizontally */
+    gap: 70px;              /* Adds consistent space between Title and Dock */
 }
 
 .dock-item {
-    position: relative;
-    width: 55px;
-    height: 55px;
-    border-radius: 12px; /* Squrcle shape */
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
     background: var(--bg-card);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: var(--text-muted);
+    position: relative;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid var(--border-light);
 }
 
 .dock-item:hover {
     transform: translateY(-10px) scale(1.1);
-    background: var(--color); /* Uses inline style variable */
-    color: #fff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    color: white;
+    background: var(--color); /* HTML inline variable used here */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
-.tooltip {
+.dock-item .tooltip {
     position: absolute;
     top: -45px;
     left: 50%;
     transform: translateX(-50%);
-    background: #fff;
-    color: #000;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    background: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s;
     white-space: nowrap;
 }
 
@@ -1646,20 +1889,11 @@ footer::after {
     opacity: 1;
 }
 
-/* --- Keyframe Animations --- */
-@keyframes blink {
-    50% { border-color: transparent; }
-}
-
-@keyframes blobPulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    100% { transform: scale(1.1); opacity: 0.5; }
-}
-
+/* Animation Utilities */
 .fade-in-up {
-    animation: fadeInUp 1s ease-out forwards;
+    animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
 }
 
 @keyframes fadeInUp {
@@ -1668,30 +1902,17 @@ footer::after {
         transform: translateY(0);
     }
 }
-/* Change entire about page background to Midnight Blue */
-.about-page {
-    background: #191970 !important;
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .intro-section h1 { font-size: 2.5rem; }
+    .glass-box { padding: 20px; }
+    .glass-box p { font-size: 0.9rem; padding-left: 30px; }
+    .glass-box p::before { left: 5px; }
+    .nav-links { display: none; }
 }
 
-.intro-section,
-.hobbies-section,
-.facts-section,
-.socials-section {
-    background: #191970 !important;
-}
-/* Change entire about page background to deep Navy Blue */
-.about-page,
-.intro-section,
-.hobbies-section,
-.facts-section,
-.socials-section {
-    background: #000080 !important;
-}
-/* Change entire about page background to rgba(18, 10, 46, 0.85) */
-.about-page,
-.intro-section,
-.hobbies-section,
-.facts-section,
-.socials-section {
-    background: rgba(18, 10, 46, 0.85) !important;
-}
