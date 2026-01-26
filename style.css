@@ -472,6 +472,8 @@ footer {
     color: white;
     padding: 5rem 2rem 2rem;
     text-align: center;
+    position: relative;  /* Anchors the absolute child inside */
+    overflow: hidden;    /* Chops off anything that spills out */
 }
 
 .footer-content h2 {
@@ -1685,7 +1687,7 @@ ul {
 /* ===== Navigation Styles for Mobile========== */
 /* Hamburger Menu Icon */
 .menu-toggle {
-    display: none; /* Hidden by default */
+    display: none;
     position: relative;
     z-index: 1001;
     width: 30px;
@@ -1764,7 +1766,7 @@ ul {
         margin: 20px 0;
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
+        
     }
 
     .nav-links.active li {
@@ -1896,7 +1898,7 @@ ul {
         padding-bottom: 4rem;
     }
     
-    /* This rule was already added, but is here for completeness */
+    /* I already added, but is here for completeness */
     .intro-section h1 { 
         font-size: 2.5rem; 
     }
