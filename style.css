@@ -1679,3 +1679,259 @@ ul {
     .nav-links { display: none; }
 }
 
+/* =========================================
+   MOBILE PHONE RESPONSIVENESS
+   ========================================= */
+/* ===== Navigation Styles for Mobile========== */
+/* Hamburger Menu Icon */
+.menu-toggle {
+    display: none; /* Hidden by default */
+    position: relative;
+    z-index: 1001;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--white);
+    position: absolute;
+    left: 0;
+    transition: all 0.35s ease;
+}
+
+.menu-toggle span:nth-child(1) { top: 0; }
+.menu-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.menu-toggle span:nth-child(3) { bottom: 0; }
+
+/* Hamburger animation when active */
+.menu-toggle.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+
+@media (max-width: 768px) {
+    /* Show hamburger menu */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide desktop nav links and style mobile nav container */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(15, 11, 30, 0.98); /* Slightly more opaque */
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Hidden by default */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-100%);
+        transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    /* Style to show the mobile nav */
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Mobile nav link styles */
+    .nav-links li {
+        margin: 20px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Stagger the animation of links appearing */
+    .nav-links.active li:nth-child(1) { transition-delay: 0.3s; }
+    .nav-links.active li:nth-child(2) { transition-delay: 0.4s; }
+    .nav-links.active li:nth-child(3) { transition-delay: 0.5s; }
+    .nav-links.active li:nth-child(4) { transition-delay: 0.6s; }
+    .nav-links.active li:nth-child(5) { transition-delay: 0.7s; }
+
+    .nav-links a {
+        font-size: 1.5rem; /* Larger for easy tapping */
+        font-weight: 600;
+    }
+
+    .btn-nav {
+        padding: 0.8rem 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* =======Content Section Adjustments for Mobile ======= */
+/* For tablets and smaller desktops */
+@media (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr; /* Stack hero section */
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        order: 2; /* Text comes after image */
+        padding-right: 0;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .hero-visual-wrapper {
+        order: 1;
+        height: 450px; /* Adjust height */
+        margin: 0 auto 2rem auto;
+        max-width: 400px;
+    }
+
+    .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-group {
+        justify-content: center;
+    }
+    
+    .tech-grid, .hobbies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* For mobile phones - overrides and adds to the above */
+@media (max-width: 768px) {
+    /* General Typography & Spacing */
+    .section {
+        padding: 4rem 1.5rem;
+    }
+
+    .section-header h2,
+    .footer-content h2 {
+        font-size: 2rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 4rem;
+    }
+
+    .hero-visual-wrapper {
+        height: auto; /* Let image define height */
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero h2 {
+        font-size: 1.25rem;
+    }
+
+    .cta-group {
+        flex-direction: column; /* Stack buttons */
+        align-items: center;
+        width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 90%;
+        max-width: 350px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Cards (Services & Projects) */
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .card, .project-card {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Footer */
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.1rem;
+    }
+    .social-links {
+        gap: 1rem;
+    }
+    
+    /* --- About Page Specifics --- */
+    .intro-section {
+        padding-top: 120px;
+        padding-bottom: 4rem;
+    }
+    
+    /* This rule was already added, but is here for completeness */
+    .intro-section h1 { 
+        font-size: 2.5rem; 
+    }
+    
+    .typing-text {
+        font-size: 1.1rem;
+    }
+    
+    /* Updating existing rules for better mobile view */
+    .glass-box { 
+        padding: 10px;
+        padding-top: 40px; /* Space for title bar */
+    }
+    
+    .glass-box p { 
+        font-size: 0.85rem; 
+        line-height: 1.7;
+        padding-left: 35px; /* Space for line numbers */
+        padding-right: 10px;
+    }
+    
+    .glass-box p::before { 
+        left: 10px; /* Position line numbers */
+    }
+
+    .tech-grid, .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hobby-card {
+        height: 280px; /* Adjust flip card height */
+    }
+
+    .social-dock {
+        gap: 15px;
+        padding: 12px 20px;
+    }
+}
