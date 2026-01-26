@@ -14,7 +14,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-
+    <div id="main-content">>
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">BC.</a>
@@ -25,9 +25,6 @@
                 <li><a href="#projects">Work</a></li>
                 <li><a href="#contact" class="btn-nav">Contact</a></li>
             </ul>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </nav>
 
@@ -41,13 +38,13 @@
             <div class="hero-content">
                 <span class="eyebrow">Hello, I'm</span>
                 <h1>Brian Chege</h1>
-                <h2 style="color: #333;">Actuarial Analyst & Data Scientist</h2>
-                <p class="hero-text" style="color: #333;">
+                <h2 style="color:#808080;">Actuarial Analyst & Data Scientist</h2>
+                <p class="hero-text" style="color: #808080;">
                     Not just analyzing the risk, I engineer the prediction
                 </p>
                 <div class="cta-group">
                     <a href="#projects" class="btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
-                    <a href="your-cv-link.pdf" class="btn-secondary">Download CV <i class="fas fa-download"></i></a>
+                    <a href="Documents/Brian Chege CV.pdf" class="btn-secondary">Download CV <i class="fas fa-download"></i></a>
                 </div>
             </div>
             
@@ -68,7 +65,7 @@
                         <i class="fas fa-chart-pie"></i>
                     </div>
                     <h3>Risk Analysis</h3>
-                    <p>Assessing financial risks and calculating probabilities using standard actuarial principles and statistical methods.</p>
+                    <p>I bring a rigorous, mathematically grounded approach to risk. My value lies in my ability to not only identify potential risks using data science but to quantify their financial impact using actuarial principles.</p>
                 </div>
 
                 <div class="card service-card">
@@ -76,7 +73,7 @@
                         <i class="fas fa-brain"></i>
                     </div>
                     <h3>Predictive Modeling</h3>
-                    <p>Building machine learning models (Random Forest, Logistic Regression) in Python to forecast trends and classify data.</p>
+                    <p>I go beyond basic regression. I have hands-on experience building complex binary classifiers using Random Forests, Decision Trees, and Gradient Boosting algorithms. I am proficient in handling real-world data challenges, such as class imbalance and performing extensive feature engineering to ensure model accuracy and stability.</p>
                 </div>
 
                 <div class="card service-card">
@@ -84,7 +81,11 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Data Storytelling</h3>
-                    <p>Transforming complex datasets into clear, interactive dashboards using Power BI and Tableau for stakeholder reporting.</p>
+                    <p>I bring the ability to bridge the gap between complex raw data and strategic business decisions. For me, data storytelling isn't just about making pretty charts—it's about crafting a narrative that drives action.
+                        
+                        <br>
+
+                        I do this by transforming complex datasets into clear, interactive dashboards using Power BI and Tableau for stakeholder reporting.</p>
                 </div>
             </div>
         </div>
@@ -101,40 +102,65 @@
             <div class="grid-3">
                 <div class="project-card">
                     <div class="card-content">
-                        <h3>Terry Stops Classification</h3>
-                        <p>Built a binary classifier using <strong>Random Forests</strong> and <strong>Decision Trees</strong> to predict whether a police stop would result in an arrest. Handled class imbalance and performed extensive feature engineering.</p>
+                        <h3>Terry Stops-to-Arrest Classification</h3>
+                        <p>Built binary classifier models using Regression Models, Random Forests, Decision Trees and Gradient Boosting algorithms to predict 
+whether a police stop would result in an arrest.
+
+<br>
+
+The final model serves to assist law enforcement agencies to ensure that adequate resources have been allocated effectively and that officers are better prepared for potential outcomes. 
+
+<br>
+
+The model also seeks to enhance transparency and accountability within law enforcement by providing insights into the factors that influence arrest decisions</p>
                         <div class="tags">
                             <span>Python</span>
                             <span>Scikit-Learn</span>
                             <span>Pandas</span>
                         </div>
-                        <a href="#" class="link-arrow">View Code <i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a href="https://github.com/BC-254/analyzing-reasonable-suspicion" class="link-arrow">View Code <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="card-content">
-                        <h3>Aviation Risk Analysis</h3>
-                        <p>Analyzed historical aviation accident data to identify high-risk aircraft models and flight phases. Used data visualization to recommend safer aircraft investments.</p>
+                        <h3>Aviation Accidents Risk Analysis</h3>
+                        <p>This project identified the risks associated with different aircraft by analysing historical aviation accident data. 
+
+<br>                            Identifying the patterns, trends and risk factors that influence such accidents facilitated the determination of the lowest risk venture 
+aircraft for purchase by the company and how viable the operation of the aircraft would be for commercial and private 
+enterprises. 
+
+<br> The dataset used consisted of approximately 24,000 aviation accidents worldwide that occurred between 1919 
+and 2023</p>
                         <div class="tags">
                             <span>Python</span>
                             <span>Data Viz</span>
                             <span>EDA</span>
                         </div>
-                        <a href="#" class="link-arrow">View Code <i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a href="https://github.com/BC-254/Historical_Aviation_Accidents_Analysis" class="link-arrow">View Code <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="card-content">
-                        <h3>Film Industry Insights</h3>
-                        <p>Exploratory data analysis of box office revenues and production budgets to identify the most profitable movie genres for a new studio entrance strategy.</p>
+                        <h3>Film Data Analysis</h3>
+                        <p>The goal of this project was to provide data-driven insights to guide a new movie studio's content strategy and film production decisions. 
+                            
+                            <br>
+
+                            By identifying the patterns and trends in the type of film categories being preferred, it facilitated the determination of the most viable film option to invest in for the new movie studio. 
+                            
+                            <br>
+
+                            This project used four film datasets that records films data mostly between 2010 and 2018 for this analysis.</p>
+
                         <div class="tags">
                             <span>Python</span>
                             <span>Seaborn</span>
                             <span>Statistics</span>
                         </div>
-                        <a href="#" class="link-arrow">View Code <i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a href="https://github.com/BC-254/Films-Data-Analysis" class="link-arrow">View Code <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -144,11 +170,11 @@
     <footer id="contact">
         <div class="container footer-content">
             <h2>Let's Work Together</h2>
-            <p>I am currently open to data science and actuarial roles in Nairobi and Thika. Have a project or a job opportunity? Let's chat.</p>
+            <p>I am currently open to data science and actuarial roles. Have a project or a job opportunity? Contact me through:</p>
             
             <div class="social-links">
-                <a href="mailto:your.email@example.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://linkedin.com/in/yourprofile" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:bchege55200@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/bchege" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/BC-254" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
             

@@ -5,19 +5,7 @@ window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset;
     const windowHeight = window.innerHeight;
     
-    // Section fade effect
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionBottom = sectionTop + sectionHeight;
-        
-        if (scrollTop > sectionBottom - windowHeight * 0.3) {
-            section.classList.add('scrolled-past');
-        } else {
-            section.classList.remove('scrolled-past');
-        }
-    });
-    
+       
     // Card reveal animations
     cards.forEach((card, index) => {
         const cardTop = card.offsetTop;
@@ -30,21 +18,7 @@ window.addEventListener('scroll', () => {
         }
     });
     
-    // Parallax effect for hero
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const heroOffset = scrollTop * 0.5;
-        hero.style.transform = `translateY(${heroOffset}px)`;
-    }
-    
-    // Navbar background on scroll
-    const navbar = document.querySelector('.navbar');
-    if (scrollTop > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+   });
 
 // Smooth reveal on page load
 window.addEventListener('load', () => {
@@ -60,3 +34,4 @@ window.addEventListener('load', () => {
         }, 100);
     }
 });
+
